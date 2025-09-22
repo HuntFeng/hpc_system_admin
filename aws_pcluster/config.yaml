@@ -1,0 +1,22 @@
+Region: ca-central-1
+Image:
+  Os: rhel9
+HeadNode:
+  InstanceType: c7i-flex.large
+  Networking:
+    SubnetId: subnet-0f6725a447b66c5f9
+  Ssh:
+    KeyName: aws_key
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: queue1
+      ComputeResources:
+        - Name: compute-nodes
+          Instances:
+            - InstanceType: c7i-flex.large
+          MinCount: 0
+          MaxCount: 10
+      Networking:
+        SubnetIds:
+          - subnet-0478b93b72b556751
